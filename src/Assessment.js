@@ -24,7 +24,7 @@ export default function Assessment() {
             return;
         }
         setNameError(false);
-        setCategories([...categories, { category: "Neue Kategorie", questions: [] }]);
+        setCategories([...categories, { category: "", questions: [] }]);
     };
 
 
@@ -264,7 +264,8 @@ export default function Assessment() {
                             <div className="questions-container">
                                 {category.questions.map((q, qIndex) => (
                                     <div key={qIndex} className="question-block">
-                                        <div className="button-group">
+                                        <button className="btn-close" onClick={() => handleDeleteQuestion(catIndex, qIndex)}>❌</button>
+                                        <div className="button-group button-color">
                                             <button className={`btn btn-gray ${q.answer === "Ich weiß nicht" ? "selected" : ""}`} onClick={() => handleAnswer(catIndex, qIndex, "Ich weiß nicht")}>Ich weiß nicht</button>
                                             <button className={`btn btn-yellow ${q.answer === "Kann es teilweise" ? "selected" : ""}`} onClick={() => handleAnswer(catIndex, qIndex, "Kann es teilweise")}>Kann es teilweise</button>
                                             <button className={`btn btn-green ${q.answer === "Kann es" ? "selected" : ""}`} onClick={() => handleAnswer(catIndex, qIndex, "Kann es")}>Kann es</button>
@@ -281,8 +282,6 @@ export default function Assessment() {
                                             updatedCategories[catIndex].questions[qIndex].info = e.target.value;
                                             setCategories(updatedCategories);
                                         }} />
-
-                                        <button className="btn btn-red" onClick={() => handleDeleteQuestion(catIndex, qIndex)}>❌ Frage löschen</button>
                                     </div>
                                 ))}
                             </div>

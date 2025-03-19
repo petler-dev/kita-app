@@ -88,16 +88,45 @@ body {
   transform: scale(1.1);
 }
 
+.question-block {
+  position: relative;
+  padding: 20px;
+  border-bottom: 2px solid #ff6600;
+}
+
+.question-block:last-child {
+  border-bottom: none;
+}
+
+.btn-close {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 12px;
+  cursor: pointer;
+}
+
 /* --- Группа кнопок --- */
 .button-group {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .button-group .btn {
   width: auto;
   margin: 0 3px 15px;
+}
+
+.button-color .btn {
+  padding: 10px 15px;
+  font-size: 14px;
 }
 
 .button-group .btn:last-child {
@@ -225,6 +254,7 @@ body {
 
   .button-group {
     justify-content: space-around;
+    flex-direction: row;
     margin-bottom: 20px;
     width: auto;
   }
@@ -236,6 +266,10 @@ body {
 
   .button-group .btn:last-child {
     margin: 10px 0;
+  }
+
+  .button-color .btn {
+    width: auto;
   }
 
   .title {
